@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-struct Node *CreateLinkedList(int arr[], int size);
+struct Node *CreateLinkedList( int arr[], int size );
 
 struct Node
 {
@@ -10,10 +10,10 @@ struct Node
 
 int main()
 {
-    int a[] = {5,6,30};
+    int a[] = { 5,6,30 };
     struct Node *head;
-    head = CreateLinkedList(a,3);
-    while(head != NULL){
+    head = CreateLinkedList( a,3 );
+    while( head != NULL ){
         printf("%d ->", head->data);
         head = head->next;
     }
@@ -26,13 +26,12 @@ struct Node *CreateLinkedList(int arr[], int size)
     struct Node *head = NULL , *temp = NULL, *current = NULL;
     int i;
     for(i=0; i< size; i++){
-       temp = (struct Node*)malloc(sizeof(struct Node));
+       temp       = ( struct Node* )malloc( sizeof( struct Node ));
        temp->data = arr[i];
        temp->next = NULL;
-       if (head == NULL)
+       if ( head == NULL )
        {
            head    = temp;
-           printf("%d",head);
            current = temp;
        }else{
            current->next = temp;
