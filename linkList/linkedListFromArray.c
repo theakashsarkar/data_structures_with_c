@@ -32,6 +32,7 @@ struct Node *CreateLinkedList(int arr[], int size)
        if (head == NULL)
        {
            head    = temp;
+           printf("%d",head);
            current = temp;
        }else{
            current->next = temp;
