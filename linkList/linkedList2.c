@@ -10,7 +10,8 @@ void Insert(int x)
   struct  Node* temp = (struct Node*)malloc(sizeof(struct Node));
   temp->data = x;
   temp->next = head;
-  head       = temp; 
+  head       = temp;
+  printf("%u",temp); 
 };
 void Print(){
     struct  Node* temp = head;
