@@ -15,6 +15,12 @@ void insert(int data)
 void Delete(int n)
 {
     struct Node* temp1 = head;
+    if(n == 1)
+    {
+        head = temp1->next;//head now points to second node.
+        free(temp1);
+        return;
+    }
     int i;
     for(i = 0; i<n-2; i++)
         temp1 = temp1->next;
