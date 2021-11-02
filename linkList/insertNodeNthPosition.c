@@ -5,24 +5,31 @@ struct Node{
     struct Node  *next;
 };
 struct Node* head; //global variable;
-void insert(int data, int x){
+void insert(int data, int n){
     struct  Node* temp1 = (struct Node*)malloc(sizeof(struct Node));
     temp1->data = data;
-    temp1->next = null;
+    temp1->next = NULL;
     if(n == 1){
         temp1->next = head;
         head        = temp1;
         return;
     }
-    Node* temp2 = head;
-    for(int i; i < n-2; i++){
-       temp2 = tem2->next; 
+    struct Node* temp2 = head;
+    for(int i = 0; i < n-2; i++){
+       temp2 = temp2->next; 
     }
     temp1->next = temp2->next;
     temp2->next = temp1;
 
 };
-void print();
+void print(){
+    struct Node* temp = head;
+    while(temp != NULL){
+        printf("%d ",temp->data);
+        temp = temp->next;
+    }
+    printf("\n");
+};
 
 int main()
 {

@@ -28,7 +28,7 @@ class LinkList{
         return true;
     }
     public function display(){
-        echo "Total Book title:".$this->_totalNode."\n";
+        echo "Total Book title: ".$this->_totalNode."\n";
         $currentNode = $this->_firstNode;
         while($currentNode !== NULL){
              echo $currentNode->data."\n";
