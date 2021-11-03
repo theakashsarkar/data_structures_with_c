@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 struct Node *CreateLinkedList( int arr[], int size );
+int searchInLinklist(struct Node *head, int value);
 
 struct Node
 {
@@ -12,13 +13,28 @@ int main()
 {
     int a[] = { 5,6,30 };
     struct Node *head;
-    head = CreateLinkedList( a,3 );
-    while( head != NULL ){
-        printf("%d ->", head->data);
-        head = head->next;
-    }
-    printf("NULL\n");
+    head = CreateLinkedList( a, 3 );
+    struct Node *current = head;
+   printf("Index: %d", searchInLinklist(head, 30));
     return 0;
+}
+
+int searchInLinklist( struct Node *head, int value )
+{
+    int index = 1;
+    while( head != NULL )
+    {
+        if( head->data == value )
+        {
+            return index;
+        }
+        else{
+            index++;
+            head  = head->next;
+        }
+
+    }
+    return -1;
 }
 
 struct Node *CreateLinkedList(int arr[], int size)
