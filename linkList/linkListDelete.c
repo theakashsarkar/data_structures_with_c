@@ -22,7 +22,7 @@ void Delete(int n)
         return;
     }
     int i;
-    for(i = 0; i<n-2; i++)
+    for(i = 0; i<n-1; i++)
         temp1 = temp1->next;
     //temp1 points to (n-1)th Node
     struct  Node* temp2 = temp1->next;//nth Node
