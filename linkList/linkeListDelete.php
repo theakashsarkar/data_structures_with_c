@@ -83,5 +83,5 @@ $linkList->insertBack(40);
 $linkList->insertBack(50);
 $linkList->display();
 echo "\n";
-$linkList->deleteNode(3);
+$linkList->deleteNode(2);
 $linkList->display();
