@@ -46,6 +46,7 @@ int main(){
     head = Insert(head, 6);
     head = Insert(head, 8);
     print(head);
+    printf("\n");
     head = reverse(head);
     print(head);
 } 
