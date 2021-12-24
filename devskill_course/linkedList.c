@@ -5,22 +5,40 @@ struct Node{
     int value;
     struct Node *next;
 };
-struct Node *head;
+struct Node *head = NULL;
 void insert(int x)
 {
     struct Node *temp = (struct Node*)malloc(sizeof(struct Node));
     temp->value = x;
-    temp->next  = NULL;
-    if(head == NULL){
-        head = temp;
-        return;
-    }
-    struct Node *copy_head = head;
-    while(copy_head->next != NULL)
+    temp->next  = head;
+    head        = temp;
+    // if(head == NULL){
+    //     head = temp;
+    //     return;
+    // }
+    // struct Node *temp1 = head;
+    // while(temp1->next != NULL)
+    // {
+    //     temp1 = temp1->next;
+    // }
+    // temp1->next = temp;
+}
+void Delete(int n)
+{
+    struct Node *temp1 = head;
+    if(n == 1)
     {
-        copy_head = copy_head->next;
+        head = temp1->next;
+        free(temp1);
     }
-    copy_head->next = temp;
+    int i;
+    for(i = 0; i < n-1; i++)
+    {
+        temp1 = temp1->next; //temp1 points to (n-1)th Node
+    }
+    struct Node* temp2 = temp1->next;//nth node
+    temp1->next = temp2->next;//(n+1)th node
+    free(temp2);
 }
 void print()
 {
@@ -33,9 +51,14 @@ void print()
 }
 int main()
 {
-
+    head = NULL;
     insert(20);
     insert(10);
     insert(40);
     print();
+    int n;
+    printf("Enter a position\n");
+    scanf("%d",&n);
+    Delete(n);
+    print(n);
 }
