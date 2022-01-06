@@ -42,13 +42,40 @@ class LinkeListImplement
             return;
         }
         $tmp1 = $this->head;
-        for($i = 0; $i < $n - 2; $i++)
+        while($n -= 2)
         {
-            $tmp1 = $tmp1->next;
+             $tmp = $tmp1->next;
         }
-        // $tmp->next  = $tmp1->next;
+        $tmp->next  = $tmp1->next;
         $tmp1->next = $tmp;
+        // while($n -= 2)
+        // {
+        //     $tmp = $tmp1->next;
+        // }
+        // $tmp1->next = $tmp;
     }
+    public function getElement($pos)
+    {
+        $curr = $this->head;
+        while($pos -- )
+        {
+            $curr = $curr->next;
+
+        }
+        return $curr->data;
+    }
+    public function delete_at(int $position)
+    {
+        $curr = $this->head;
+        while($position--)
+        {
+            $curr = $curr->next;
+        }
+        $nextNode   = $curr->next; 
+        $curr->next = $nextNode;
+        unset($curr);
+    }
+
 
     public function display()
     {
@@ -56,13 +83,21 @@ class LinkeListImplement
         while($_head != NULL)
         {
             echo " ". $_head->data;
-            $_head = $_head->next;
+            $_head =  $_head->next;
         }
     }
 }
 $linkeListImplement = new LinkeListImplement();
-// $linkeListImplement->insert_at_tail(1);
 $linkeListImplement->insert_at_any_position(20,1);
-$linkeListImplement->insert_at_any_position(30,2);
-$linkeListImplement->insert_at_any_position(30,1);
+$linkeListImplement->insert_at_any_position(10,2);
+$linkeListImplement->insert_at_any_position(6,1);
+$linkeListImplement->insert_at_any_position(5,2);
 $linkeListImplement->display();
+echo "\n";
+$linkeListImplement->delete_at(1);
+$linkeListImplement->display();
+// echo "\n";
+// echo $linkeListImplement->getElement(1);
+// echo " ";
+// echo $linkeListImplement->getElement(0);
+// $linkeListImplement->display();
