@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<math.h>
 
-long long convert(int);
+long long int convert(int);
 int main()
 {
     int n = 13;
@@ -11,7 +11,7 @@ int main()
     return 0;
 }
 
-long long convert(int n) {
+long long int convert(int n) {
   long long bin = 0;
   int rem, i = 1;
 
